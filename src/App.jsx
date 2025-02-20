@@ -34,7 +34,7 @@ const App = () => {
           <Navbar />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path='/video' element ={<WatchDemo/>}/>
+      
             <Route path="/about" element={<About />} />
             <Route path="/features" element={<Features />} />
             <Route path="/how-to-use" element={<HowItWork />} />
