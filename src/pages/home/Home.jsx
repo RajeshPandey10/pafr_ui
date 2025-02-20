@@ -8,6 +8,7 @@ import Features from '../features/Features';
 import HowItWork from '../howItWork/HowItWork';
 import Contact from '../message/Contact';
 import Faq from '../../components/Faq';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
   const [showExtensionPrompt, setShowExtensionPrompt] = useState(false);
@@ -80,8 +81,8 @@ const Home = () => {
                   >
                     Analyze Reviews Now
                   </button>
-                  <button className="px-8 py-4 bg-white text-purple-600 rounded-lg font-semibold border-2 border-purple-600 hover:bg-purple-50 transition-colors duration-300">
-                    Watch Demo
+                  <button  className="px-8 py-4 bg-white text-purple-600 rounded-lg font-semibold border-2 border-purple-600 hover:bg-purple-50 transition-colors duration-300">
+                    <Link to='/video'>Watch demo</Link>
                   </button>
                 </div>
                 <div className="flex items-center gap-8 pt-4">
