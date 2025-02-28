@@ -8,7 +8,7 @@ import {
   FaEnvelope,
 } from "react-icons/fa";
 import { ToastContainer, toast } from "react-toastify";
-import axios from "axios"; // <-- Added axios import
+import emailjs from "emailjs-com"; // <-- Added EmailJS import
 import "react-toastify/dist/ReactToastify.css";
 import Loading from "../../components/Loading";
 
@@ -45,7 +45,6 @@ const Contact = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-
     setFormData((prev) => ({
       ...prev,
       [name]: value,
@@ -61,53 +60,39 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validateForm()) return;
-
     setIsSubmitting(true);
 
+    // Prepare the parameters for your EmailJS template.
+    const templateParams = {
+      from_name: formData.name,
+      from_email: formData.email,
+      message: formData.message,
+      to_email: contactInfo.email, // This must be set up in your EmailJS template.
+    };
+
     try {
-      // Removed erroneous console.log(data)
-      const res = await axios.post(
-        "http://localhost:3000/api/contact",
-        formData
+      // Replace the placeholders with your EmailJS credentials.
+      const result = await emailjs.send(
+        "minor_project",
+        "template_ozjmqdf",
+        templateParams,
+        "vJPwKBaNTkMqDJTW_"
       );
-      if (res.data.success) {
-        toast.success(
-          "Message sent successfully! We will get back to you soon.",
-          {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "colored",
-          }
-        );
-        setFormData({ name: "", email: "", message: "" });
-        setErrors({});
-      } else {
-        toast.error("Something went wrong. Please try again later.", {
+      toast.success(
+        "Message sent successfully! We will get back to you soon.",
+        {
           position: "top-right",
           autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
           theme: "colored",
-        });
-      }
+        }
+      );
+      setFormData({ name: "", email: "", message: "" });
+      setErrors({});
     } catch (error) {
       console.error("Error submitting form:", error);
       toast.error("Something went wrong. Please try again later.", {
         position: "top-right",
         autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
         theme: "colored",
       });
     } finally {
@@ -129,18 +114,7 @@ const Contact = () => {
     <>
       <AnimatePresence>{isSubmitting && <Loading />}</AnimatePresence>
 
-      <ToastContainer
-        position="top-right"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="colored"
-      />
+      <ToastContainer position="top-right" autoClose={5000} theme="colored" />
 
       <div className="min-h-screen bg-gradient-to-b from-yellow-50 to-white py-28">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -157,7 +131,6 @@ const Contact = () => {
             <p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8 px-4">
               Have questions or feedback? We'd love to hear from you.
             </p>
-
             {/* Quick Contact Options */}
             <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6 mb-6 sm:mb-8">
               <motion.a
@@ -173,7 +146,6 @@ const Contact = () => {
                   {contactInfo.phone}
                 </span>
               </motion.a>
-
               <motion.a
                 href={`mailto:${contactInfo.email}`}
                 className="flex items-center space-x-2 text-purple-600 hover:text-green-600 transition-colors duration-300 group w-full sm:w-auto justify-center"
@@ -222,7 +194,6 @@ const Contact = () => {
                   </p>
                 )}
               </div>
-
               <div>
                 <label
                   htmlFor="email"
@@ -246,7 +217,6 @@ const Contact = () => {
                   </p>
                 )}
               </div>
-
               <div>
                 <label
                   htmlFor="message"
@@ -272,7 +242,6 @@ const Contact = () => {
                   </p>
                 )}
               </div>
-
               <motion.button
                 type="submit"
                 disabled={isSubmitting}

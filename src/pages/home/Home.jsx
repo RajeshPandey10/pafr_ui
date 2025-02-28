@@ -9,6 +9,7 @@ import HowItWork from "../howItWork/HowItWork";
 import Contact from "../message/Contact";
 import Faq from "../../components/Faq";
 import { Link } from "react-router-dom";
+import video from "../../assets/demo.mov";
 
 const Home = () => {
   const [showExtensionPrompt, setShowExtensionPrompt] = useState(false);
@@ -43,14 +44,7 @@ const Home = () => {
           className: "!bg-white !text-gray-800 !rounded-xl !p-6 !shadow-xl",
         }
       );
-    } else {
-      // Extension is installed, proceed with analysis
-      toast.success("Starting analysis...", {
-        position: "top-center",
-        autoClose: 2000,
-      });
-      // Add your analysis logic here
-    }
+    } 
   };
 
   return (
@@ -107,14 +101,14 @@ const Home = () => {
                           &times;
                         </button>
 
-                        {/* YouTube Video */}
+                        {/* Local Video */}
                         <div className="relative w-full h-64">
-                          <iframe
+                          <video
                             className="w-full h-full rounded-lg"
-                            src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                            title="YouTube Video"
-                            allowFullScreen
-                          ></iframe>
+                            src={video}
+                            controls
+                            autoPlay
+                          ></video>
                         </div>
                       </div>
                     </div>
@@ -126,7 +120,7 @@ const Home = () => {
                     <p className="text-gray-600">Reviews Analyzed</p>
                   </div>
                   <div className="text-center">
-                    <h3 className="text-3xl font-bold text-gray-900">80%</h3>
+                    <h3 className="text-3xl font-bold text-gray-900">90%</h3>
                     <p className="text-gray-600">Accuracy Rate</p>
                   </div>
                   <div className="text-center">
