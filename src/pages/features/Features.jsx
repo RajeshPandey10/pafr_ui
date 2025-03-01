@@ -35,7 +35,7 @@ const Features = () => {
     },
     {
       icon: <FaShieldAlt className="w-8 h-8 text-purple-600" />,
-      title: "Confident Score",
+      title: "Confidence Score",
       description:
         "Used Compound score and provide a confidence score to help you understand the true product quality.",
     },
