@@ -37,19 +37,19 @@ const Features = () => {
       icon: <FaShieldAlt className="w-8 h-8 text-purple-600" />,
       title: "Confident Score",
       description:
-        "Used Compound score and provide a confident score to help you understand the true product quality.",
+        "Used Compound score and provide a confidence score to help you understand the true product quality.",
     },
     {
       icon: <FaBolt className="w-8 h-8 text-purple-600" />,
       title: "Real-time Analysis",
       description:
-        "Get instant insights as you browse products with our Chrome extension.",
+        "Get instant insights as you browse products with our browser extension.",
     },
     {
       icon: <FaChartLine className="w-8 h-8 text-purple-600" />,
       title: "Recommendation",
       description:
-        "Recommending products based on the review and confident score.",
+        "Recommending products based on the review and confidence score.",
     },
   ];
 

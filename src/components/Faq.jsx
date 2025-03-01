@@ -12,7 +12,7 @@ const Faq = () => {
     },
     {
       question: 'How does the review analysis work?',
-      answer: 'Our AI system processes reviews using advanced natural language processing techniques. It analyzes sentiment, identifies key product features, confident score, and provides a comprehensive summary to help you understand the true product quality.'
+      answer: 'Our AI system processes reviews using advanced natural language processing techniques. It analyzes sentiment, identifies key product features, confidence score, and provides a comprehensive summary to help you understand the true product quality.'
     },
     {
       question: 'Is the browser extension free to use?',
