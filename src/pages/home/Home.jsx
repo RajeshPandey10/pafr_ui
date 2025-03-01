@@ -16,35 +16,38 @@ const Home = () => {
   const [showModal, setShowModal] = useState(false);
 
   const handleAnalyzeClick = () => {
-    // Check if the extension is installed
-    if (!window.chrome || !window.chrome.runtime || !window.chrome.runtime.id) {
+   
       toast.info(
         <div className="flex flex-col space-y-4 py-2">
-          <p className="text-gray-800">
-            Please install our Chrome extension to analyze reviews.
+          <p className="text-white">
+            Please install our Browser extension to analyze reviews.
           </p>
-          <div className="flex justify-end space-x-2">
+          <div className="flex justify-center space-x-2">
             <button
               onClick={() => toast.dismiss()}
-              className="px-4 py-2 text-sm text-gray-600 hover:text-gray-800"
+              className="px-4 py-2 text-sm text-gray-200 hover:text-gray-800 bg-red-600 rounded-lg hover:bg-red-800"
             >
               Cancel
             </button>
-            <AddToFireFox className="!m-0 list-none" />
+            <div className="w-48">
+              <AddToFireFox />
+            </div>
           </div>
         </div>,
         {
+          icon:false,
           position: "top-center",
           autoClose: false,
           hideProgressBar: true,
           closeOnClick: false,
           pauseOnHover: true,
-          draggable: false,
+          draggable: true,
           progress: undefined,
-          className: "!bg-white !text-gray-800 !rounded-xl !p-6 !shadow-xl",
+          className:
+            "!bg-black !text-white !rounded-xl !shadow-xl !max-w-lg !w-full",
         }
       );
-    } 
+    
   };
 
   return (

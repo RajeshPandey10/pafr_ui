@@ -7,7 +7,7 @@ const HowItWork = () => {
     {
       icon: <FaChrome className="w-12 h-12 text-purple-600" />,
       title: "Install Extension",
-      description: "Add our Chrome extension to your browser with just one click. It's free and takes less than a minute.",
+      description: "Add our Browser extension to your browser with just one click. It's free and takes less than a minute.",
       image: "https://images.unsplash.com/photo-1607706189992-eae578626c86?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
     },
     {
@@ -109,7 +109,7 @@ const HowItWork = () => {
               Join thousands of smart shoppers who use our AI-powered review analysis.
             </p>
             <button className="bg-white text-purple-600 px-8 py-4 rounded-lg font-semibold hover:bg-purple-50 transition-colors duration-300 shadow-lg">
-              Install Extension Now - It's Free
+              <a href="https://addons.mozilla.org/en-US/firefox/addon/product-review-insight/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search" target='_blank'>Install Extension Now - It's Free</a>
             </button>
           </div>
         </motion.div>

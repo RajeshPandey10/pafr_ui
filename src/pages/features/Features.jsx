@@ -133,27 +133,6 @@ const Features = () => {
             );
           })}
         </div>
-
-        {/* Call to Action */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="text-center mt-20"
-        >
-          <div className="bg-purple-600 text-white rounded-2xl p-12 shadow-2xl transform hover:scale-105 transition-transform duration-300">
-            <h2 className="text-3xl font-bold mb-6">
-              Ready to Make Smarter Shopping Decisions?
-            </h2>
-            <p className="text-lg mb-8 text-purple-100">
-              Install our Chrome extension and start analyzing product reviews
-              instantly.
-            </p>
-            <button className="bg-white text-purple-600 px-8 py-4 rounded-lg font-semibold hover:bg-purple-50 transition-colors duration-300 shadow-lg">
-              Add to Chrome - It's Free
-            </button>
-          </div>
-        </motion.div>
       </div>
     </div>
   );

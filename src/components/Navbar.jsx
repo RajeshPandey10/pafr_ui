@@ -111,27 +111,27 @@ const Navbar = () => {
         scrolled ? "bg-yellow-200 shadow-lg" : "bg-yellow-200"
       }`}
     >
-      <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between p-4 md:flex-nowrap md:p-6">
+      <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between p-4 lg:flex-nowrap lg:p-6">
         {/* Logo */}
         <Link
           to="/"
           onClick={handleHomeClick}
-          className="text-2xl font-extrabold text-gray-800 tracking-wide drop-shadow-md md:text-3xl md:mr-12 cursor-pointer"
+          className="text-2xl font-extrabold text-gray-800 tracking-wide drop-shadow-md lg:text-3xl lg:mr-12 cursor-pointer"
           data-aos="fade-right"
         >
           Product Review Analysis
         </Link>
 
-        {/* Mobile Menu Icon */}
+        {/* Mobile/Tablet Menu Icon */}
         <div
           onClick={() => setNav(!nav)}
-          className="cursor-pointer text-gray-800 z-50 md:hidden"
+          className="cursor-pointer text-gray-800 z-50 lg:hidden"
         >
           {nav ? <FaTimes size={24} /> : <FaBars size={24} />}
         </div>
 
         {/* Desktop Menu */}
-        <ul className="hidden md:flex space-x-6">
+        <ul className="hidden lg:flex space-x-6">
           {links.map((link, index) => (
             <li
               key={link.id}
@@ -144,30 +144,32 @@ const Navbar = () => {
           ))}
           <AddToFireFox />
         </ul>
-      </div>
 
-      {/* Mobile Menu */}
-      {nav && (
-        <div className="fixed top-0 left-0 w-full h-screen bg-yellow-200 backdrop-blur-sm flex flex-col items-center justify-center z-40">
-          <ul className="flex flex-col items-center space-y-8">
-            {links.map((link, index) => (
-              <li
-                key={link.id}
-                className={`text-xl font-semibold capitalize transition-all duration-300 ease-in-out ${
-                  isLinkActive(link.path, link.section)
-                    ? "bg-gray-100 text-purple-600"
-                    : "text-gray-800 hover:text-purple-600"
-                }`}
-                data-aos="fade-up"
-                data-aos-delay={index * 100}
-              >
-                {renderLink(link, () => setNav(!nav))}
+        {/* Mobile/Tablet Menu */}
+        {nav && (
+          <div className="fixed top-0 left-0 w-full h-screen bg-yellow-200 backdrop-blur-sm flex flex-col items-center justify-center z-40">
+            <ul className="flex flex-col items-center space-y-8">
+              {links.map((link, index) => (
+                <li
+                  key={link.id}
+                  className={`text-xl font-semibold capitalize transition-all duration-300 ease-in-out ${
+                    isLinkActive(link.path, link.section)
+                      ? "bg-gray-100 text-purple-600 px-4 py-2 rounded-lg"
+                      : "text-gray-800 hover:text-purple-600"
+                  }`}
+                  data-aos="fade-up"
+                  data-aos-delay={index * 100}
+                >
+                  {renderLink(link, () => setNav(!nav))}
+                </li>
+              ))}
+              <li className="mt-6">
+                <AddToFireFox />
               </li>
-            ))}
-            <AddToFireFox />
-          </ul>
-        </div>
-      )}
+            </ul>
+          </div>
+        )}
+      </div>
     </nav>
   );
 };

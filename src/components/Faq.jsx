@@ -20,7 +20,7 @@ const Faq = () => {
     },
     {
       question: 'Which e-commerce platforms are supported?',
-      answer: 'Currently, we support Daraz. We are continuously working to add support for more platforms.'
+      answer: 'Currently, we support Amazon and Daraz. We are continuously working to add support for more platforms.'
     },
    
     {

@@ -1,30 +1,31 @@
-import React from 'react';
-import { FaGithub, FaLinkedin, FaHeart } from 'react-icons/fa';
+import React from "react";
+import { FaGithub, FaLinkedin, FaHeart } from "react-icons/fa";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const teamMembers = [
     {
-      name: 'Rajesh Pandey',
-      github: 'https://github.com/rajeshpandey179',
-      linkedin: 'https://linkedin.com/in/rajesh-pandey'
+      name: "Rajesh Pandey",
+      github: "https://github.com/RajeshPandey10",
+      linkedin: "https://www.linkedin.com/in/rajesh-pandey-915649286/",
+    },
+
+    {
+      name: "Ravi Pandit",
+      github: "https://github.com/ravix2001",
+      linkedin: "https://www.linkedin.com/in/ravipandit2001/",
     },
     {
-      name: 'Sonu Gupta',
-      github: 'https://github.com/creationsbysonu',
-      linkedin: 'https://linkedin.com/in/sonu-gupta'
+      name: "Nigam Yadav",
+      github: "https://github.com/nigamyadav72",
+      linkedin: "https://www.linkedin.com/in/nigam-yadav-099447199/",
     },
     {
-      name: 'Ravi Pandit',
-      github: 'https://github.com/ravix2001',
-      linkedin: 'https://www.linkedin.com/in/ravipandit2001/'
+      name: "Sonu Gupta",
+      github: "https://github.com/creationsbysonu",
+      linkedin: "https://www.linkedin.com/in/sonu-gupta-681329340/",
     },
-    {
-      name: 'Nigam Yadav',
-      github: 'https://github.com/nigamyadav72',
-      linkedin: 'https://www.linkedin.com/in/nigam-yadav-099447199/'
-    }
   ];
 
   return (
@@ -62,7 +63,7 @@ const Footer = () => {
           {/* Special Thanks */}
           <div className="pt-4 border-t border-gray-800">
             <p className="text-sm text-gray-400">
-              Special thanks to{' '}
+              Special thanks to{" "}
               <a
                 href="https://pcampus.edu.np/"
                 target="_blank"
@@ -75,11 +76,17 @@ const Footer = () => {
           </div>
 
           {/* Copyright */}
-          <div className="pt-4 border-t border-gray-800 flex items-center justify-center space-x-2 text-sm">
-            <span> {currentYear} Product Review AI.</span>
-            <span>Made with</span>
-            <FaHeart className="text-red-500 w-4 h-4" />
-            <span>by Rajesh Pandey</span>
+          <div className="pt-4 border-t border-gray-800">
+            <div className="flex flex-col sm:flex-row items-center justify-center space-y-2 sm:space-y-0 sm:space-x-2 text-sm">
+              <div className="flex items-center space-x-2">
+                <span>{currentYear} Product Review Analysis.</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <span>Made with</span>
+                <FaHeart className="text-red-500 w-4 h-4 animate-pulse" />
+                <span>by Rajesh Pandey</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
