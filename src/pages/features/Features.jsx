@@ -53,9 +53,6 @@ const Features = () => {
     },
   ];
 
-  const toggleFeature = (index) =>
-    setActiveIndex(activeIndex === index ? null : index);
-
   return (
     <div className="min-h-screen bg-gradient-to-b from-yellow-50 to-white py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -78,60 +75,32 @@ const Features = () => {
 
         {/* Features Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
-          {features.map((feature, index) => {
-            const isActive = activeIndex === index;
-            const isHovered = hoveredIndex === index;
-            // Rotate 180° when active; if only hovered, rotate to 90°; else 0°.
-            const iconRotation = isActive ? 180 : isHovered ? 90 : 0;
-            const showDescription = isActive || isHovered;
-            return (
-              <motion.div
-                key={index}
-                layout
-                onClick={() => toggleFeature(index)}
-                onMouseEnter={() => setHoveredIndex(index)}
-                onMouseLeave={() => setHoveredIndex(null)}
-                className="relative group bg-white p-8 rounded-2xl shadow-lg cursor-pointer overflow-hidden"
-                whileHover={{ scale: 1.03 }}
-                transition={{ duration: 0.3 }}
-              >
-                {/* Animated Background Gradient */}
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-purple-200 to-transparent opacity-0 group-hover:opacity-25 transition-opacity duration-300"
-                  layout
-                />
-                <div className="relative z-10 flex items-center justify-between">
-                  <div className="bg-purple-50 w-16 h-16 rounded-lg flex items-center justify-center mb-4">
-                    {feature.icon}
-                  </div>
-                  <motion.div
-                    animate={{ rotate: iconRotation }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <FaChevronDown className="text-purple-600 w-5 h-5" />
-                  </motion.div>
+          {features.map((feature, index) => (
+            <motion.div
+              key={index}
+              className="relative group bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
+              whileHover={{ scale: 1.03 }}
+            >
+              {/* Background Gradient */}
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-200 to-transparent opacity-0 group-hover:opacity-25 transition-all duration-300 rounded-2xl" />
+
+              {/* Content */}
+              <div className="relative z-10">
+                <div className="bg-purple-50 w-16 h-16 rounded-lg flex items-center justify-center mb-4">
+                  {feature.icon}
                 </div>
-                <h3 className="relative z-10 text-xl font-bold text-gray-900 mb-4">
+
+                <h3 className="text-xl font-bold text-gray-900 mb-4">
                   {feature.title}
                 </h3>
-                <AnimatePresence>
-                  {showDescription && (
-                    <motion.div
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: "auto" }}
-                      exit={{ opacity: 0, height: 0 }}
-                      transition={{ duration: 0.3 }}
-                      className="relative z-10"
-                    >
-                      <p className="text-gray-600 mt-2">
-                        {feature.description}
-                      </p>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </motion.div>
-            );
-          })}
+
+                {/* Description - Hidden by default, shown on hover */}
+                <p className="text-gray-600 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+                  {feature.description}
+                </p>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </div>

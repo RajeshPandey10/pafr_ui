@@ -35,9 +35,12 @@ const Footer = () => {
           {/* Team Section */}
           <div>
             <h3 className="text-xl font-semibold text-white mb-4">Our Team</h3>
-            <div className="flex flex-wrap justify-center gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
               {teamMembers.map((member, index) => (
-                <div key={index} className="flex items-center space-x-3">
+                <div
+                  key={index}
+                  className="flex items-center justify-center space-x-3 py-2"
+                >
                   <span className="text-purple-400">{member.name}</span>
                   <a
                     href={member.github}

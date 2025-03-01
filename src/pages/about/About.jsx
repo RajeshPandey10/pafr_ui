@@ -49,7 +49,7 @@ const About = () => {
     {
       name: "Flask",
       description:
-        "A lightweight WSGI web application framework in Python, perfect for building APIs. We use Flask to create robust backend services that handle machine learning models and data processing efficiently.",
+        "A lightweight framework in Python, perfect for building APIs. We use Flask to create robust backend services that handle machine learning models and data processing efficiently.",
       shortDescription: "Python web framework for backend services",
       icon: (
         <svg
